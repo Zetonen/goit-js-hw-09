@@ -10,7 +10,7 @@ const DELAY = 1000;
 
 const changeColor = new ChangeRandomColor({
   changeColor: updateBodyBg,
-})
+});
 
 refs.startBtn.addEventListener(
   'click',
