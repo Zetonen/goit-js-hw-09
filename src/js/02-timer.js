@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import '../css/timer-style.css';
 import { refs } from './function-02/refs.js';
 import { Timer } from './function-02/timer.js';
@@ -19,7 +20,7 @@ const options = {
         refs.startBtn.removeAttribute('disabled');
       })
       .catch(() => {
-        alert('Please choose a date in the future');
+        Notify.failure('Please choose a date in the future');
         refs.startBtn.setAttribute('disabled', true);
       });
   },
