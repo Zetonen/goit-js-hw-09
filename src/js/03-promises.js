@@ -1,8 +1,6 @@
-function createPromise(position, delay) {
-  const shouldResolve = Math.random() > 0.3;
-  if (shouldResolve) {
-    // Fulfill
-  } else {
-    // Reject
-  }
-}
+import { refs } from './function-03/refs.js';
+import { onSubmitForm } from './function-03/onSubmitForm.js';
+
+refs.form.addEventListener('submit', onSubmitForm);
+
+
