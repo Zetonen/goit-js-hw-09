@@ -12,7 +12,6 @@ export class Timer {
     }
     this.isActive = true;
     this.idInterval = setInterval(() => {
-      console.log(this.convertMs(this.timeLeft));
       this.onTick(this.convertMs(this.timeLeft));
       this.timeLeft -= 1000;
       if (this.timeLeft <= 0) {
@@ -35,12 +34,17 @@ export class Timer {
     const days = this.pad(String(Math.floor(ms / day)));
     const hours = this.pad(String(Math.floor((ms % day) / hour)));
     const minutes = this.pad(String(Math.floor(((ms % day) % hour) / minute)));
-    const seconds = this.pad(String(Math.floor((((ms % day) % hour) % minute) / second)));
+    const seconds = this.pad(
+      String(Math.floor((((ms % day) % hour) % minute) / second))
+    );
 
     return { days, hours, minutes, seconds };
   }
 
   changeTimeLeft(time) {
+    if (this.idInterval) {
+      return;
+    }
     this.timeLeft = time;
   }
 
